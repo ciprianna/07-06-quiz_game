@@ -23,8 +23,8 @@ function AskAQuestion(GermanWord) {
 //
 // Returns the user's answer - String
 function ValidAnswer(GermanWord, Answer) {
-  while (!Answer in GermanWord.choices) {
-    GetUserAnswer(GermanWord);
+  while (GermanWord.choices.indexOf(Answer) == -1) {
+    Answer = GetUserAnswer(GermanWord);
   }
   return Answer;
 }
