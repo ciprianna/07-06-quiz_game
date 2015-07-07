@@ -63,11 +63,8 @@ function AnswerCheck(GermanWord, Answer) {
 // Returns the percentage of answers
 function PercentRight(Correct, Questions) {
   var UserScore = Correct / parseFloat(Questions.length);
-  if (UserScore == 1) {
-    alert("You got " + Correct + " out of " + Questions.length + " quesitons correct: " + UserScore + "00%");
-  } else {
-    alert("You got " + Correct + " out of " + Questions.length + " quesitons correct: " + UserScore + "%");
-  }
+
+  alert("You got " + Correct + " out of " + Questions.length + " quesitons correct: " + (UserScore * 100) + "%");
 }
 
 // First question
