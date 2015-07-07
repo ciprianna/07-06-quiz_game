@@ -1,112 +1,112 @@
 // Score counter
-var Correct = 0;
+var correct = 0;
 
 // Create the Array to store Questions
-var Questions = new Array();
+var questions = new Array();
 
 // Prompts the question alert
 //
-// GermanWord - JavaScript Object for the word to Translate
+// german_word - JavaScript Object for the word to Translate
 //
 // Returns an alert to the user if they got the question correct or not
-function AskAQuestion(GermanWord) {
-  alert(GermanWord["question"]);
-  var FirstAnswer = GetUserAnswer(GermanWord);
-  Answer = ValidAnswer(GermanWord, FirstAnswer);
-  AnswerCheck(GermanWord, Answer);
+function ask_a_question(german_word) {
+  alert(german_word["question"]);
+  var first_answer = get_user_answer(german_word);
+  answer = valid_answer(german_word, first_answer);
+  answer_check(german_word, answer);
 }
 
 // Function to ensure choice entered is valid
 //
-// GermanWord - JavaScript Object for the word to Translate
-// Answer - String for the user's answer to the question
+// german_word - JavaScript Object for the word to Translate
+// answer - String for the user's answer to the question
 //
 // Returns the user's answer - String
-function ValidAnswer(GermanWord, Answer) {
-  while (GermanWord.choices.indexOf(Answer) == -1) {
-    Answer = GetUserAnswer(GermanWord);
+function valid_answer(german_word, answer) {
+  while (german_word.choices.indexOf(answer) == -1) {
+    answer = get_user_answer(german_word);
   }
-  return Answer;
+  return answer;
 }
 
 // Get a User's answer
 //
-// GermanWord - JavaScript Object for the word to Translate
+// german_word - JavaScript Object for the word to Translate
 //
 // Returns the user's answer - String
-function GetUserAnswer(GermanWord) {
-  var UserAnswer = prompt("Type your answer (" + GermanWord.choices + ")");
-  var Answer = UserAnswer.toLowerCase();
-  return Answer;
+function get_user_answer(german_word) {
+  var user_answer = prompt("Type your answer (" + german_word.choices + ")");
+  var answer = user_answer.toLowerCase();
+  return answer;
 }
 
 // Check if the user's answer is correct
 //
-// GermanWord - JavaScript Object for the word to Translate
-// Answer - String for the user's answer to the question
+// german_word - JavaScript Object for the word to Translate
+// answer - String for the user's answer to the question
 //
 // Returns an alert if the user got the right answer or not
-function AnswerCheck(GermanWord, Answer) {
-  if (Answer === GermanWord["answer"]) {
+function answer_check(german_word, answer) {
+  if (answer === german_word["answer"]) {
     alert("Good job!");
     Correct++;
   } else {
-    alert("Sorry, the correct answer was: " + GermanWord["answer"]);
+    alert("Sorry, the correct answer was: " + german_word["answer"]);
   }
 }
 
 // Calculates percentage of correct answers
 //
-// Correct - Integer for the number of  correct answers from the user
-// Questions - Array of GermanWord Objects
+// correct - Integer for the number of  correct answers from the user
+// questions - Array of GermanWord Objects
 //
 // Returns the percentage of answers
-function PercentRight(Correct, Questions) {
-  var UserScore = Correct / parseFloat(Questions.length);
+function percent_right(correct, questions) {
+  var user_score = correct / parseFloat(questions.length);
 
-  alert("You got " + Correct + " out of " + Questions.length + " quesitons correct: " + (UserScore * 100) + "%");
+  alert("You got " + correct + " out of " + questions.length + " quesitons correct: " + (user_score * 100) + "%");
 }
 
 // First question
-var DasIsPlease = new Object();
-DasIsPlease.question = "Translate to German: 'please'\nVerzeihung\nBitte\nDanke\nTschau";
-DasIsPlease.answer = "bitte";
-DasIsPlease.choices = ["verzeihung", "bitte", "danke", "tschau"];
+var das_is_please = new Object();
+das_is_please.question = "Translate to German: 'please'\nVerzeihung\nBitte\nDanke\nTschau";
+das_is_please.answer = "bitte";
+das_is_please.choices = ["verzeihung", "bitte", "danke", "tschau"];
 // Push the question to the Array
-Questions.push(DasIsPlease);
+questions.push(das_is_please);
 
 // Second question
-var DasIsI = new Object();
-DasIsI.question = "Translate to German: 'I'\nIch\nWir\nSie\nihr";
-DasIsI.answer = "ich";
-DasIsI.choices = ["ich", "wir", "sie", "ihr"];
-Questions.push(DasIsI);
+var das_is_i = new Object();
+das_is_i.question = "Translate to German: 'I'\nIch\nWir\nSie\nihr";
+das_is_i.answer = "ich";
+das_is_i.choices = ["ich", "wir", "sie", "ihr"];
+questions.push(das_is_i);
 
 // Third question
-var DasIsAirport = new Object();
-DasIsAirport.question = "Translate to German: 'Airport'\nBahn\nBusbahnhof\nBahnhof\nFlughafen";
-DasIsAirport.answer = "flughafen";
-DasIsAirport.choices = ["bahn", "busbahnhof", "bahnhof", "flughafen"];
-Questions.push(DasIsAirport);
+var das_is_airport = new Object();
+das_is_airport.question = "Translate to German: 'Airport'\nBahn\nBusbahnhof\nBahnhof\nFlughafen";
+das_is_airport.answer = "flughafen";
+das_is_airport.choices = ["bahn", "busbahnhof", "bahnhof", "flughafen"];
+questions.push(das_is_airport);
 
 // Fourth question
-var DasIsPotato = new Object();
-DasIsPotato.question = "Translate to German: 'Potato'\nFisch\nFleisch\nKartoffel\nBrot";
-DasIsPotato.answer = "kartoffel";
-DasIsPotato.choices = ["fisch", "fleisch", "kartoffel", "brot"];
-Questions.push(DasIsPotato);
+var das_is_potato = new Object();
+das_is_potato.question = "Translate to German: 'Potato'\nFisch\nFleisch\nKartoffel\nBrot";
+das_is_potato.answer = "kartoffel";
+das_is_potato.choices = ["fisch", "fleisch", "kartoffel", "brot"];
+questions.push(das_is_potato);
 
 // Fifth question
-var DasIsThursday = new Object();
-DasIsThursday.question = "Translate to German: 'Thursday'\nDeinstag\nSamstag\nDonnerstag\nMittwoch";
-DasIsThursday.answer = "donnerstag";
-DasIsThursday.choices = ["deinstag", "samstag", "donnerstag", "mittwoch"];
-Questions.push(DasIsThursday);
+var das_is_thursday = new Object();
+das_is_thursday.question = "Translate to German: 'Thursday'\nDeinstag\nSamstag\nDonnerstag\nMittwoch";
+das_is_thursday.answer = "donnerstag";
+das_is_thursday.choices = ["deinstag", "samstag", "donnerstag", "mittwoch"];
+questions.push(das_is_thursday);
 
 var index;
 // Run the program
-for (Questions, index = 0; index < Questions.length; index++) {
-  AskAQuestion(Questions[index]);
+for (questions, index = 0; index < questions.length; index++) {
+  ask_a_question(questions[index]);
 }
 
-PercentRight(Correct, Questions);
+percent_right(correct, questions);
