@@ -11,8 +11,8 @@ var Questions = new Array();
 // Returns an alert to the user if they got the question correct or not
 function AskAQuestion(GermanWord) {
   alert(GermanWord["question"]);
-  var Answer = GetUserAnswer(GermanWord);
-  ValidAnswer(GermanWord, Answer);
+  var FirstAnswer = GetUserAnswer(GermanWord);
+  Answer = ValidAnswer(GermanWord, FirstAnswer);
   AnswerCheck(GermanWord, Answer);
 }
 
@@ -26,6 +26,7 @@ function ValidAnswer(GermanWord, Answer) {
   while (!Answer in GermanWord.choices) {
     GetUserAnswer(GermanWord);
   }
+  return Answer;
 }
 
 // Get a User's answer
@@ -36,6 +37,7 @@ function ValidAnswer(GermanWord, Answer) {
 function GetUserAnswer(GermanWord) {
   var UserAnswer = prompt("Type your answer (" + GermanWord.choices + ")");
   var Answer = UserAnswer.toLowerCase();
+  return Answer;
 }
 
 // Check if the user's answer is correct
@@ -45,7 +47,7 @@ function GetUserAnswer(GermanWord) {
 //
 // Returns an alert if the user got the right answer or not
 function AnswerCheck(GermanWord, Answer) {
-  if (Answer == GermanWord["answer"]) {
+  if (Answer === GermanWord["answer"]) {
     alert("Good job!");
     Correct++;
   } else {
@@ -60,8 +62,12 @@ function AnswerCheck(GermanWord, Answer) {
 //
 // Returns the percentage of answers
 function PercentRight(Correct, Questions) {
-  var UserScore = Correct / Questions;
-  alert("You got " + Correct + " out of " + Questions.length + " quesitons correct: " + UserScore + "%");
+  var UserScore = Correct / parseFloat(Questions.length);
+  if (UserScore == 1) {
+    alert("You got " + Correct + " out of " + Questions.length + " quesitons correct: " + UserScore + "00%");
+  } else {
+    alert("You got " + Correct + " out of " + Questions.length + " quesitons correct: " + UserScore + "%");
+  }
 }
 
 // First question
