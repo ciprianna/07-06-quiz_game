@@ -78,6 +78,34 @@ DasIsPlease.choices = ["verzeihung", "bitte", "danke", "tschau"];
 // Push the question to the Array
 Questions.push(DasIsPlease);
 
+// Second question
+var DasIsI = new Object();
+DasIsI.question = "Translate to German: 'I'\nIch\nWir\nSie\nihr";
+DasIsI.answer = "ich";
+DasIsI.choices = ["ich", "wir", "sie", "ihr"];
+Questions.push(DasIsI);
+
+// Third question
+var DasIsAirport = new Object();
+DasIsAirport.question = "Translate to German: 'Airport'\nBahn\nBusbahnhof\nBahnhof\nFlughafen";
+DasIsAirport.answer = "flughafen";
+DasIsAirport.choices = ["bahn", "busbahnhof", "bahnhof", "flughafen"];
+Questions.push(DasIsAirport);
+
+// Fourth question
+var DasIsPotato = new Object();
+DasIsPotato.question = "Translate to German: 'Potato'\nFisch\nFleisch\nKartoffel\nBrot";
+DasIsPotato.answer = "kartoffel";
+DasIsPotato.choices = ["fisch", "fleisch", "kartoffel", "brot"];
+Questions.push(DasIsPotato);
+
+// Fifth question
+var DasIsThursday = new Object();
+DasIsThursday.question = "Translate to German: 'Thursday'\nDeinstag\nSamstag\nDonnerstag\nMittwoch";
+DasIsThursday.answer = "donnerstag";
+DasIsThursday.choices = ["deinstag", "samstag", "donnerstag", "mittwoch"];
+Questions.push(DasIsThursday);
+
 var index;
 // Run the program
 for (Questions, index = 0; index < Questions.length; index++) {
